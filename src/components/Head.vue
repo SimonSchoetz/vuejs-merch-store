@@ -1,15 +1,15 @@
 <template>
   <div class="head">
-    <h1>{{msg}}</h1>
+    <h1>Busted Fingerz Merch Store</h1>
     
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Head',
   props: {
-    msg: String
+    // msg: String
   }
 }
 </script>

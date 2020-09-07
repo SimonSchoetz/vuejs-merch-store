@@ -1,5 +1,10 @@
 # 14-vuejs-merch-store
 
+A fake merch store for learning and showcasing purposes 
+
+
+---------------------
+
 ## Project setup
 ```
 npm install

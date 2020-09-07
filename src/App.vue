@@ -1,18 +1,21 @@
 
 <template>
   <div id="app">
-    <Head msg="Busted Fingerz Merch Store" />
+    <Head />
+    <Products />
   </div>
 </template>
 
 <script>
 
-import Head from './components/Head.vue'
+import Head from './components/Head.vue';
+import Products from './components/Products';
 
 export default {
   name: 'App',
   components: {
-    Head
+    Head,
+    Products
   }
 }
 </script>
