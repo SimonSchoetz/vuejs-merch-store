@@ -1,0 +1,307 @@
+{
+    
+       "shirts": {
+            "id": 0,
+            "product": "Shirt",
+            "shirts": [
+                {
+                    "id": 0,
+                    "img": "https://i.ibb.co/Z8Kf6HM/shirt-w-b.png",
+                    "colorMain": "white",
+                    "colorLogo1": "black",
+                    "colorLogo2": "",
+                    "quantity": 20
+                },
+                {
+                    "id": 1,
+                    "img": "https://i.ibb.co/zrN4Rxg/shirt-w-b-r.png",
+                    "colorMain": "white",
+                    "colorLogo1": "black",
+                    "colorLogo2": "red",
+                    "quantity": 9
+                },
+                {
+                    "id": 2,
+                    "img": "https://i.ibb.co/Qm4yf0X/shirt-blu-b-r.png",
+                    "colorMain": "blue",
+                    "colorLogo1": "black",
+                    "colorLogo2": "red"
+                },
+                {
+                    "id": 3,
+                    "img": "https://i.ibb.co/W37rBh3/shirt-blu-b.png",
+                    "colorMain": "blue",
+                    "colorLogo1": "black",
+                    "colorLogo2": "",
+                    "quantity": 15
+                },
+                {
+                    "id": 4,
+                    "img": "https://i.ibb.co/HrGWY5W/shirt-blu-w.png",
+                    "colorMain": "blue",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 0
+                },
+                {
+                    "id": 5,
+                    "img": "https://i.ibb.co/HNBdgfP/shirt-red-w.png",
+                    "colorMain": "red",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 30
+                },
+                {
+                    "id": 6,
+                    "img": "https://i.ibb.co/QHndBFN/shirt-red-b.png",
+                    "colorMain": "red",
+                    "colorLogo1": "black",
+                    "colorLogo2": "",
+                    "quantity":22
+                },
+                {
+                    "id": 7,
+                    "img": "https://i.ibb.co/MBY7Xbv/shirt-bla-w-r.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 45
+                },
+                {
+                    "id": 8,
+                    "img": "https://i.ibb.co/25qkY1Y/shirt-bla-w-g.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "gold",
+                    "quantity": 5
+                },
+                {
+                    "id": 9,
+                    "img": "https://i.ibb.co/XLX26DB/shirt-bla-w.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 16
+                },
+                {
+                    "id": 10,
+                    "img": "https://i.ibb.co/pyvn2bp/shirt-gre-b.png",
+                    "colorMain": "green",
+                    "colorLogo1": "black",
+                    "colorLogo2": "",
+                    "quantity": 1
+                },
+                {
+                    "id": 11,
+                    "img": "https://i.ibb.co/dLSctKg/shirt-gre-b-r.png",
+                    "colorMain": "green",
+                    "colorLogo1": "black",
+                    "colorLogo2": "red",
+                    "quantity": 0
+                },
+                {
+                    "id": 12,
+                    "img": "https://i.ibb.co/cJJr2LQ/shirt-gre-w-r.png",
+                    "colorMain": "green",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 10
+                },
+                {
+                    "id": 13,
+                    "img": "https://i.ibb.co/hRqRnZ3/shirt-gre-w.png",
+                    "colorMain": "green",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 10
+                }
+            ]
+        },
+        "onesies": {
+            "id": 1,
+            "product": "Onesie",
+            "onesie": [
+                {
+                    "id": 0,
+                    "img": "https://i.ibb.co/TtVGNjP/babyshirt-bla-w-r.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 30
+                },
+                {
+                    "id": 1,
+                    "img": "https://i.ibb.co/DVVDQ8W/babyshirt-bla-w-g.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "gold",
+                    "quantity": 5
+                },
+                {
+                    "id": 2,
+                    "img": "https://i.ibb.co/4VG3ZdN/babyshirt-bla-w.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 30
+                },
+                {
+                    "id": 3,
+                    "img": "https://i.ibb.co/NpzkVVj/babyshirt-blu-w-r.png",
+                    "colorMain": "blue",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 50
+                },
+                {
+                    "id": 4,
+                    "img": "https://i.ibb.co/dGskjxf/babyshirt-blu-w.png",
+                    "colorMain": "blue",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 0
+                },
+                {
+                    "id": 5,
+                    "img": "https://i.ibb.co/mFKfDDh/babyshirt-blu-b.png",
+                    "colorMain": "blue",
+                    "colorLogo1": "black",
+                    "colorLogo2": "",
+                    "quantity": 7
+                },
+                {
+                    "id": 6,
+                    "img": "https://i.ibb.co/0fbmFw7/babyshirt-blu-b-r.png",
+                    "colorMain": "blue",
+                    "colorLogo1": "black",
+                    "colorLogo2": "red",
+                    "quantity": 13
+                }
+            ]
+        },
+        "beenies": {
+            "id": 2,
+            "product": "Beenie",
+            "beenies": [
+                {
+                    "id": 0,
+                    "img": "https://i.ibb.co/dPBYXSB/beenie-gre-w-r.png",
+                    "colorMain": "green",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 13
+                },
+                {
+                    "id": 1,
+                    "img": "https://i.ibb.co/fCygmtR/beenie-gre-w.png",
+                    "colorMain": "green",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 2
+                },
+                {
+                    "id": 2,
+                    "img": "https://i.ibb.co/7C9LWZX/beenie-red-w.png",
+                    "colorMain": "red",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 19
+                },
+                {
+                    "id": 3,
+                    "img": "https://i.ibb.co/HXCYGSx/beenie-red-w-r.png",
+                    "colorMain": "red",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 25
+                },
+                {
+                    "id": 4,
+                    "img": "https://i.ibb.co/drNPhy6/beenie-dirt-w-r.png",
+                    "colorMain": "brown",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 33
+                },
+                {
+                    "id": 5,
+                    "img": "https://i.ibb.co/ZLx9DdL/beenie-dirt-w.png",
+                    "colorMain": "brown",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 9
+                },
+                {
+                    "id": 6,
+                    "img": "https://i.ibb.co/fd1d5dC/beenie-bla-w.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 0
+                },
+                {
+                    "id": 7,
+                    "img": "https://i.ibb.co/QfhgMhh/beenie-bla-w-r.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 11
+                },
+                {
+                    "id": 8,
+                    "img": "https://i.ibb.co/Hq8K3D9/beenie-bla-w-g.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "gold",
+                    "quantity": 0
+                }
+            ]
+        },
+        "stickers": {
+            "id": 3,
+            "product": "Sticker",
+            "stickers": [
+                {
+                    "id": 0,
+                    "img": "https://i.ibb.co/f8bntzm/Sticker-bla-w.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "",
+                    "quantity": 100
+                },
+                {
+                    "id": 1,
+                    "img": "https://i.ibb.co/3s5zjyZ/Sticker-bla-w-r.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 560
+                },
+                {
+                    "id": 2,
+                    "img": "https://i.ibb.co/drL3qzR/Sticker-bla-w-g.png",
+                    "colorMain": "black",
+                    "colorLogo1": "white",
+                    "colorLogo2": "gold",
+                    "quantity": 15
+                },
+                {
+                    "id": 3,
+                    "img": "https://i.ibb.co/fQgtNCH/Sticker-whi-w-r.png",
+                    "colorMain": "white",
+                    "colorLogo1": "white",
+                    "colorLogo2": "red",
+                    "quantity": 0
+                },
+                {
+                    "id": 3,
+                    "img": "https://i.ibb.co/D461tp0/Sticker-whi-b.png",
+                    "colorMain": "white",
+                    "colorLogo1": "black",
+                    "colorLogo2": "",
+                    "quantity": 2000
+                }
+            ]
+        }
+    
+}
