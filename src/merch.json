@@ -3,7 +3,7 @@
     {
         "id": 0,
         "product": "Shirt",
-        "shirts": [
+        "types": [
             {
                 "id": 0,
                 "img": "https://i.ibb.co/Z8Kf6HM/shirt-w-b.png",
@@ -120,7 +120,7 @@
     {
         "id": 1,
         "product": "Onesie",
-        "onesie": [
+        "types": [
             {
                 "id": 0,
                 "img": "https://i.ibb.co/TtVGNjP/babyshirt-bla-w-r.png",
@@ -182,7 +182,7 @@
     {
         "id": 2,
         "product": "Beenie",
-        "beenies": [
+        "types": [
             {
                 "id": 0,
                 "img": "https://i.ibb.co/dPBYXSB/beenie-gre-w-r.png",
@@ -260,7 +260,7 @@
     {
         "id": 3,
         "product": "Sticker",
-        "stickers": [
+        "types": [
             {
                 "id": 0,
                 "img": "https://i.ibb.co/f8bntzm/Sticker-bla-w.png",
