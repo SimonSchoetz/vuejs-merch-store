@@ -1,14 +1,16 @@
 <template>
   <div class="products">
     <h1>Products</h1>
-    <Product :merch-stock="stock" />
+    <div v-for="(product, i) in stock" :key="i">
+        <ProductCard :merch-stock="product" />
+    </div>
+    
   </div>
 </template>
 
 <script>
 import merchDB from "../merch.json";
-import Product from  "./Product"
-console.log(merchDB)
+import ProductCard from  "./ProductCard"
 export default {
   name: 'Products',
   data() { return {
@@ -17,7 +19,7 @@ export default {
   methods: {
   },
   components: {
-      Product
+      ProductCard
   }
 }
 </script>
