@@ -289,12 +289,12 @@
                 "id": 3,
                 "img": "https://i.ibb.co/fQgtNCH/Sticker-whi-w-r.png",
                 "colorMain": "white",
-                "colorLogo1": "white",
+                "colorLogo1": "black",
                 "colorLogo2": "red",
                 "quantity": 0
             },
             {
-                "id": 3,
+                "id": 4,
                 "img": "https://i.ibb.co/D461tp0/Sticker-whi-b.png",
                 "colorMain": "white",
                 "colorLogo1": "black",

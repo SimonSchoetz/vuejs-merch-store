@@ -1,10 +1,7 @@
 <template>
   <div class="products">
     <h1>Products</h1>
-    <div v-for="(product, i) in stock" :key="i">
-        <ProductCard :merch-stock="product" />
-    </div>
-    
+        <ProductCard v-for="(product, i) in stock" :key="i" :merch-stock="product" />
   </div>
 </template>
 
