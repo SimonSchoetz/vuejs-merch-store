@@ -8,7 +8,7 @@
             <div 
             class="color-container" 
             @mouseenter="showColorPalette(color)" 
-            @mouseleave="showColorPalette(false)" v-for="(color, i) in colors()" 
+            @mouseleave="showColorPalette(false)" v-for="(color, i) in colors" 
             :key="i">
                 <div class="color-cover" :class="{hideColors: color === currColor}" :style="{backgroundColor:color}" > 
                 </div>
@@ -32,8 +32,8 @@
             </p>
         </div>
     </form>
-    
-    <button @click="clg(currColor)">clg</button>
+    <!-- {{testComputed}} -->
+    <button @click="clg(colors)">clg</button>
 </div>  
 </template>
 
@@ -50,14 +50,6 @@ export default {
             productTypes: this.merchStock.types,
             selectedType: 0,
             currColor: "initial",
-            colors: () => {
-                    let colors = [];
-                    this.merchStock.types.map(type => {
-                        colors.includes(type.colorMain) ? null : colors.push(type.colorMain)
-                    });
-                    return colors
-            },
-            
         }
     },
     methods: {
@@ -74,9 +66,16 @@ export default {
             input ? this.currColor = input : this.currColor = "initial"
         }
     },
-    // computed: {
-
-    // }
+    computed: {
+        colors() {
+            let colors = [];
+            this.merchStock.types.map(type => {
+                colors.includes(type.colorMain) ? null : colors.push(type.colorMain)
+            });
+            console.log("color runs")
+            return colors
+        },
+    }
 }
 </script>
 
