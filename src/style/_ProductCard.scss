@@ -1,3 +1,8 @@
 .product-card {
     display: flex;
+
+    .color-picker {
+        position: relative;
+        width: 300px;
+    }
 }

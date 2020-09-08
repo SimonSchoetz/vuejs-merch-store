@@ -25,7 +25,8 @@
                 "img": "https://i.ibb.co/Qm4yf0X/shirt-blu-b-r.png",
                 "colorMain": "blue",
                 "colorLogo1": "black",
-                "colorLogo2": "red"
+                "colorLogo2": "red",
+                "quantity": 39
             },
             {
                 "id": "3786",
