@@ -2,8 +2,8 @@
 <template>
 <div class="product">
     <h2>{{productName}}s</h2>
-    <form class="product-card"> 
-        <img width="400" :src="productTypes[selectedType].img" />
+    <div class="product-card"> 
+        <img width="400" :src="currItem.img" />
         <div class="color-picker">  
             <div 
             class="color-container" 
@@ -14,10 +14,11 @@
                 </div>
                 <button 
                 class="main-color"
+                :class="{hideColors: color !== currColor}" 
                 @focus="updateProduct(color, i)"
                 @blur="showColorPalette(false)"
-                :class="{hideColors: color !== currColor}" 
                 @mouseover="updateProduct(color, i)" v-for="(type, i) in productTypes" 
+                @click="addToCart(currItem.id)"
                 v-show="type.colorMain === color" 
                 :style="{backgroundColor:type.colorMain}" 
                 :key="i"> 
@@ -28,12 +29,12 @@
             </div>
         </div>
         <div class="product-details"> 
-            <p>Quantity: {{productTypes[selectedType].quantity}}
-            </p>
+            <p v-show="currItem.quantity <= 0"> Out of stock! </p>
+            <p v-show="currItem.quantity > 0"> Click on color to add to card </p>
         </div>
-    </form>
+    </div>
     <!-- {{testComputed}} -->
-    <button @click="clg(colors)">clg</button>
+    <button @click="clg(shoppingCart)">clg</button>
 </div>  
 </template>
 
@@ -48,8 +49,9 @@ export default {
             products: this.merchStock,
             productName: this.merchStock.product,
             productTypes: this.merchStock.types,
-            selectedType: 0,
+            selectedId: 0,
             currColor: "initial",
+            shoppingCart: [],
         }
     },
     methods: {
@@ -58,12 +60,15 @@ export default {
         },
         updateProduct(color, id) {
             return (
-                this.selectedType = id,
+                this.selectedId = id,
                 this.currColor = color
             )
         },
         showColorPalette(input) {
             input ? this.currColor = input : this.currColor = "initial"
+        },
+        addToCart() {
+            this.shoppingCart.push(this.currItem) //works but has to go to a global shopping cart
         }
     },
     computed: {
@@ -72,9 +77,11 @@ export default {
             this.merchStock.types.map(type => {
                 colors.includes(type.colorMain) ? null : colors.push(type.colorMain)
             });
-            console.log("color runs")
             return colors
         },
+        currItem() {
+            return this.productTypes[this.selectedId]
+        }
     }
 }
 </script>
