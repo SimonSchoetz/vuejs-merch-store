@@ -2,18 +2,19 @@
 <template>
 <div class="product">
     <h2>{{productName}}s</h2>
-    <div class="shopping-card"> 
+    <div class="product-card"> 
         <img width="400" :src="productTypes[selectedType].img" />
-        <div class="color-container" @mouseenter="showColorPalette(color)" @mouseleave="showColorPalette(false)" v-for="(color, i) in colors()" :key="i">
-            
-            <div class="color-cover" :class="{hideColors: color === currColor}" :style="{backgroundColor:color}" > </div>
-            <div class="main-color" :class="{hideColors: color !== currColor}" @mouseover="updateProduct(i)" v-for="(type, i) in productTypes" v-show="type.colorMain === color" :style="{backgroundColor:type.colorMain}" :key="i"> 
-                <div class="color-logo-1" :class="{hideColors: color !== currColor}" :style="{backgroundColor:type.colorLogo1}"> 
-                    <div class="color-logo-2" :class="{hideColors: color !== currColor}" v-show="type.colorLogo2" :style="{backgroundColor:type.colorLogo2}"></div>
+        <div> 
+            <div class="color-container" @mouseenter="showColorPalette(color)" @mouseleave="showColorPalette(false)" v-for="(color, i) in colors()" :key="i">
+                
+                <div class="color-cover" :class="{hideColors: color === currColor}" :style="{backgroundColor:color}" > </div>
+                <div class="main-color" :class="{hideColors: color !== currColor}" @mouseover="updateProduct(i)" v-for="(type, i) in productTypes" v-show="type.colorMain === color" :style="{backgroundColor:type.colorMain}" :key="i"> 
+                    <div class="color-logo-1" :class="{hideColors: color !== currColor}" :style="{backgroundColor:type.colorLogo1}"> 
+                        <div class="color-logo-2" :class="{hideColors: color !== currColor}" v-show="type.colorLogo2" :style="{backgroundColor:type.colorLogo2}"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        
     </div>
     
     <button @click="clg(currColor)">clg</button>
