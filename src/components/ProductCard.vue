@@ -4,8 +4,9 @@
     <h2>{{productName}}s</h2>
     <div class="product-card"> 
         <div class="product-view"> 
-            <img width="400" :src="currItem.img" />
-            <div class="out-of-stock-layer" v-show="currItem.quantity <= 0"> 
+            <img width="400" v-show="hovering" :src="currItem.img" />
+            <img width="400" v-show="!hovering" :src="lockedItem.img" />
+            <div class="out-of-stock-layer" v-if="!inStock"> 
                 <p> 
                     Out of stock! 
                 </p>
@@ -13,20 +14,25 @@
             <div class="color-picker">  
             <div 
                 class="color-container" 
-                @mouseenter="showColorPalette(color)" 
-                @mouseleave="showColorPalette(false)" v-for="(color, i) in colors" 
+                @mouseenter="handleColorHover(color, true)" 
+                @mouseleave="handleColorHover('initial', false)" 
+                v-for="(color, i) in colors" 
                 :key="i"
             >
-                <div class="color-cover" :class="{hideColors: color === currColor}" :style="{backgroundColor:color}" > 
-                </div>
+                <button class="color-cover" 
+                @click="handleColorHover(color, true)" :class="{hideColors: color === currColor}" :style="{backgroundColor:color}" > 
+                </button>
+
                 <button 
                 class="main-color"
                 :class="{hideColors: color !== currColor}" 
                 @focus="updateProduct(color, i)"
-                @blur="showColorPalette(false)"
-                @mouseover="updateProduct(color, i)" v-for="(type, i) in productTypes" 
-                @click="addToCart(currItem.id)"
+                @blur="handleColorHover('initial', false)"
+                @mouseover="updateProduct(color, i)"
+                v-for="(type, i) in productTypes" 
+                @click="lockItem(currItem, i, 'lock')"
                 v-show="type.colorMain === color" 
+                
                 :style="{backgroundColor:type.colorMain}" 
                 :key="i"> 
                     <div class="color-logo-1" :class="{hideColors: color !== currColor}" :style="{backgroundColor:type.colorLogo1}"> 
@@ -37,13 +43,9 @@
             
         </div>
         </div>
-        <div class="product-details"> 
-            
-            <p v-show="currItem.quantity > 0"> Click on color to add to card </p>
-        </div>
     </div>
     <!-- {{testComputed}} -->
-    <button @click="clg(shoppingCart)">clg</button>
+    <button @click="clg(this.lockedItem)">clg</button>
 </div>  
 </template>
 
@@ -61,6 +63,9 @@ export default {
             selectedId: 0,
             currColor: "initial",
             shoppingCart: [],
+            hovering: false,
+            lockedItem: this.merchStock.types[0],
+            inStock: true,
         }
     },
     methods: {
@@ -68,6 +73,7 @@ export default {
             return console.log(input)
         },
         updateProduct(color, id) {
+            this.handleColorHover('color', true);
             return (
                 this.selectedId = id,
                 this.currColor = color
@@ -76,11 +82,37 @@ export default {
         showColorPalette(input) {
             input ? this.currColor = input : this.currColor = "initial"
         },
+        lockItem(item, i, lock) {
+            if (lock === "lock" && this.inStock) {
+                console.log(this.lockedItem)
+                this.lockedItem = item;
+                this.currItem = item;
+                this.handleColorHover('initial', false);
+            }
+        },
+        handleColorHover(color, isOn) {
+            if (isOn) {
+                this.hovering = true;
+                this.showColorPalette(color);
+                this.outOfStock(this.currItem.quantity)
+            }
+            if (!isOn) {
+                this.hovering = false
+                this.showColorPalette(color)
+                this.inStock = true
+            }
+
+        },
         addToCart() {
             this.$emit("add-to-cart", this.currItem) //works but has to go to a global shopping cart
             // needs to count down the amount of stock
             // needs to count up if some articles are chosen multiple times
+        },
+        outOfStock(quantity) {
+            if (quantity <= 0) return this.inStock = false
+            else return this.inStock = true
         }
+
     },
     computed: {
         colors() {
@@ -92,7 +124,7 @@ export default {
         },
         currItem() {
             return this.productTypes[this.selectedId]
-        }
+        },
     }
 }
 </script>
