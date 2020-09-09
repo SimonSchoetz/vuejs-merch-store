@@ -2,20 +2,20 @@
 <template>
   <div id="app">
     <Head />
-    <Products />
+    <Shop />
   </div>
 </template>
 
 <script>
 
 import Head from './components/Head.vue';
-import Products from './components/Products';
+import Shop from './components/Shop';
 
 export default {
   name: 'App',
   components: {
     Head,
-    Products
+    Shop
   }
 }
 </script>

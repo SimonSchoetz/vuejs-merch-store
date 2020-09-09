@@ -69,6 +69,8 @@ export default {
         },
         addToCart() {
             this.shoppingCart.push(this.currItem) //works but has to go to a global shopping cart
+            // needs to count down the amount of stock
+            // needs to count up if some articles are chosen multiple times
         }
     },
     computed: {
