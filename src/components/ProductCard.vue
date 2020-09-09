@@ -3,13 +3,20 @@
 <div class="product">
     <h2>{{productName}}s</h2>
     <div class="product-card"> 
-        <img width="400" :src="currItem.img" />
-        <div class="color-picker">  
+        <div class="product-view"> 
+            <img width="400" :src="currItem.img" />
+            <div class="out-of-stock-layer" v-show="currItem.quantity <= 0"> 
+                <p> 
+                    Out of stock! 
+                </p>
+            </div>
+            <div class="color-picker">  
             <div 
-            class="color-container" 
-            @mouseenter="showColorPalette(color)" 
-            @mouseleave="showColorPalette(false)" v-for="(color, i) in colors" 
-            :key="i">
+                class="color-container" 
+                @mouseenter="showColorPalette(color)" 
+                @mouseleave="showColorPalette(false)" v-for="(color, i) in colors" 
+                :key="i"
+            >
                 <div class="color-cover" :class="{hideColors: color === currColor}" :style="{backgroundColor:color}" > 
                 </div>
                 <button 
@@ -27,9 +34,11 @@
                     </div>
                 </button>
             </div>
+            
+        </div>
         </div>
         <div class="product-details"> 
-            <p v-show="currItem.quantity <= 0"> Out of stock! </p>
+            
             <p v-show="currItem.quantity > 0"> Click on color to add to card </p>
         </div>
     </div>
