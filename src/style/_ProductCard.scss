@@ -1,6 +1,5 @@
 .product-card {
     display: flex;
-    width: 50%;
     .product-view {
         position: relative;
         img {
@@ -24,6 +23,12 @@
             position: absolute;
             top: 0;
             width: 300px;
+        }
+        .to-cart-btn {
+            position: absolute;
+            padding: 5px;
+            right: 30px;
+            bottom: 30px;
         }
     }
     

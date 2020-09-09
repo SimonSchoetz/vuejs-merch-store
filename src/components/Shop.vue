@@ -26,7 +26,8 @@ export default {
   }},
   methods: {
     updateCart(input) {
-        this.cart.push(input);
+      console.log(this.cart)
+      this.cart.push(input);
     }
   },
   computed: {

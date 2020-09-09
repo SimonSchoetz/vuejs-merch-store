@@ -4,44 +4,46 @@
     <h2>{{productName}}s</h2>
     <div class="product-card"> 
         <div class="product-view"> 
-            <img width="400" v-show="hovering" :src="currItem.img" />
-            <img width="400" v-show="!hovering" :src="lockedItem.img" />
+            <img width="400" :src="imgSrc" />
             <div class="out-of-stock-layer" v-if="!inStock"> 
                 <p> 
                     Out of stock! 
                 </p>
             </div>
             <div class="color-picker">  
-            <div 
-                class="color-container" 
-                @mouseenter="handleColorHover(color, true)" 
-                @mouseleave="handleColorHover('initial', false)" 
-                v-for="(color, i) in colors" 
-                :key="i"
-            >
-                <button class="color-cover" 
-                @click="handleColorHover(color, true)" :class="{hideColors: color === currColor}" :style="{backgroundColor:color}" > 
-                </button>
-
-                <button 
-                class="main-color"
-                :class="{hideColors: color !== currColor}" 
-                @focus="updateProduct(color, i)"
-                @blur="handleColorHover('initial', false)"
-                @mouseover="updateProduct(color, i)"
-                v-for="(type, i) in productTypes" 
-                @click="lockItem(currItem, i, 'lock')"
-                v-show="type.colorMain === color" 
-                
-                :style="{backgroundColor:type.colorMain}" 
-                :key="i"> 
-                    <div class="color-logo-1" :class="{hideColors: color !== currColor}" :style="{backgroundColor:type.colorLogo1}"> 
-                        <div class="color-logo-2" :class="{hideColors: color !== currColor}" v-show="type.colorLogo2" :style="{backgroundColor:type.colorLogo2}" />
+                <div 
+                    class="color-container" 
+                    @mouseenter="handleColorHover(color, true)" 
+                    @mouseleave="handleColorHover('initial', false)" 
+                    v-for="(color, i) in colors" 
+                    :key="i"
+                >
+                    <div class="color-cover" 
+                    :class="{hideColors: color === currColor}" 
+                    @click="handleColorHover(color, true)" 
+                    :style="{backgroundColor:color}" > 
                     </div>
-                </button>
+                    <button 
+                    class="main-color"
+                    :class="{hideColors: color !== currColor}" 
+                    @focus="updateProduct(color, i)"
+                    @blur="handleColorHover('initial', false)"
+                    @mouseover="updateProduct(color, i)"
+                    v-for="(type, i) in productTypes" 
+                    @click="lockItem(currItem, i, 'lock')"
+                    v-show="type.colorMain === color" 
+                    
+                    :style="{backgroundColor:type.colorMain}" 
+                    :key="i"> 
+                        <div class="color-logo-1" :class="{hideColors: color !== currColor}" :style="{backgroundColor:type.colorLogo1}"> 
+                            <div class="color-logo-2" :class="{hideColors: color !== currColor}" v-show="type.colorLogo2" :style="{backgroundColor:type.colorLogo2}" />
+                        </div>
+                    </button>
+                </div>
             </div>
-            
-        </div>
+            <button class="to-cart-btn" @click="addToCart()">
+                Add To Cart
+            </button>
         </div>
     </div>
     <!-- {{testComputed}} -->
@@ -79,17 +81,6 @@ export default {
                 this.currColor = color
             )
         },
-        showColorPalette(input) {
-            input ? this.currColor = input : this.currColor = "initial"
-        },
-        lockItem(item, i, lock) {
-            if (lock === "lock" && this.inStock) {
-                console.log(this.lockedItem)
-                this.lockedItem = item;
-                this.currItem = item;
-                this.handleColorHover('initial', false);
-            }
-        },
         handleColorHover(color, isOn) {
             if (isOn) {
                 this.hovering = true;
@@ -102,6 +93,16 @@ export default {
                 this.inStock = true
             }
 
+        },
+        showColorPalette(input) {
+            input ? this.currColor = input : this.currColor = "initial"
+        },
+        lockItem(item, i, lock) {
+            if (lock === "lock" && this.inStock) {
+                this.lockedItem = item;
+                this.currItem = item;
+                this.handleColorHover('initial', false);
+            }
         },
         addToCart() {
             this.$emit("add-to-cart", this.currItem) //works but has to go to a global shopping cart
@@ -125,6 +126,9 @@ export default {
         currItem() {
             return this.productTypes[this.selectedId]
         },
+        imgSrc() {
+            return this.hovering? this.currItem.img : this.lockedItem.img
+        }
     }
 }
 </script>
