@@ -105,7 +105,7 @@ export default {
             }
         },
         addToCart() {
-            this.$emit("add-to-cart", this.currItem) //works but has to go to a global shopping cart
+            this.$emit("add-to-cart", this.currItem)
             // needs to count down the amount of stock
             // needs to count up if some articles are chosen multiple times
         },
