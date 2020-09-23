@@ -9,7 +9,7 @@
         :merch-stock="product" 
       />
     </div>
-    <Cart />
+    <Cart :cartItems="cart" />
 
   </div>
 </template>
@@ -31,9 +31,7 @@ export default {
     }
   },
   computed: {
-    cartAmmount() {
-      return this.cart.length
-    }
+    
   },
   components: {
       ProductCard,
