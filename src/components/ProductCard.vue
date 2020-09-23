@@ -108,7 +108,7 @@ export default {
             this.$emit("add-to-cart", this.currItem);
             this.currItem.quantity --;
             console.log(this.currItem.quantity)
-            // needs to count up if some articles are chosen multiple times
+            this.outOfStock(this.currItem.quantity);
         },
         outOfStock(quantity) {
             if (quantity <= 0) return this.inStock = false
