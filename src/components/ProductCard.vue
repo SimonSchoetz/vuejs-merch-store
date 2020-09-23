@@ -1,7 +1,7 @@
 
 <template>
 <div class="product">
-    <h2>{{productName}}s</h2>
+    <h3 class="product-name">{{productName}}s</h3>
     <div class="product-card"> 
         <div class="product-view"> 
             <img width="400" :src="imgSrc" />
@@ -42,12 +42,10 @@
                 </div>
             </div>
             <button class="to-cart-btn" :disabled="!inStock" @click="addToCart()">
-                Add To Cart
+                ADD TO CART
             </button>
         </div>
     </div>
-    <!-- {{testComputed}} -->
-    <button @click="clg(this.lockedItem)">clg</button>
 </div>  
 </template>
 
@@ -71,9 +69,6 @@ export default {
         }
     },
     methods: {
-        clg(input) {
-            return console.log(input)
-        },
         updateProduct(color, id) {
             this.handleColorHover('color', true);
             return (
@@ -107,7 +102,7 @@ export default {
         addToCart() {
             this.$emit("add-to-cart", this.currItem);
             this.currItem.quantity --;
-            console.log(this.currItem.quantity)
+            console.log("Remaining quantity: "+this.currItem.quantity)
             this.outOfStock(this.currItem.quantity);
         },
         outOfStock(quantity) {

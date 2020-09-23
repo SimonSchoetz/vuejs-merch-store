@@ -1,7 +1,7 @@
 <template>
   <div class="shop">
     <div>
-    <h1>Shop</h1>
+    <h2>Products</h2>
       <ProductCard 
         v-for="(product, i) in stock" 
         @add-to-cart="updateCart" 
