@@ -41,7 +41,7 @@
                     </button>
                 </div>
             </div>
-            <button class="to-cart-btn" @click="addToCart()">
+            <button class="to-cart-btn" :disabled="!inStock" @click="addToCart()">
                 Add To Cart
             </button>
         </div>
@@ -105,8 +105,9 @@ export default {
             }
         },
         addToCart() {
-            this.$emit("add-to-cart", this.currItem)
-            // needs to count down the amount of stock
+            this.$emit("add-to-cart", this.currItem);
+            this.currItem.quantity --;
+            console.log(this.currItem.quantity)
             // needs to count up if some articles are chosen multiple times
         },
         outOfStock(quantity) {

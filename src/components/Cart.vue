@@ -1,8 +1,8 @@
 
 <template>
   <div class="cart">
-      <h2>This is Cart ({{cartAmount}})</h2>
-  <button @click="clg('scurr')">clg</button>
+      <h2>Cart ({{cartAmount}})</h2>
+  <button @click="clg(cart)">clg</button>
   </div>
 </template>
 
