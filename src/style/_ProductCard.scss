@@ -5,7 +5,9 @@
         right: 0;
         z-index: 2;
         background-color: white;
-        padding: .2rem 2rem;
+        padding: .2rem 0;
+        width: 138px;
+        text-align: center;
         border-left: 1px solid black;
         border-bottom: 1px solid black;
         border-radius: 0 0 0 10px;
@@ -50,7 +52,7 @@
             .to-cart-btn {
                 position: absolute;
                 padding: 1rem;
-                right: 2rem;
+                right: 1rem;
                 bottom: 2rem;
                 font-weight: bold;
                 box-shadow: rgba(0, 0, 0, 0.5) -5px 5px 10px 2px;
