@@ -1,16 +1,24 @@
 <template>
   <div class="shop">
-    <div>
-    <h2>Products</h2>
-      <ProductCard 
-        v-for="(product, i) in stock" 
-        @add-to-cart="updateCart" 
-        :key="i" 
-        :merch-stock="product" 
-      />
+      <h1>Busted Fingerz Merch</h1>
+      <div class="fake-nav">
+        <h2 :class="activeCart ? '' : 'active'" >PRODUCTS</h2>
+        <h2 :class="activeCart ? 'active' : ''" @click="showCart(true)">CART ({{cartAmount}})</h2>
+      </div>
+    <div v-show="activeCart" class="coming-soon" @click="showCart(false)">
+      <h2>COMMING SOON!</h2>
     </div>
-    <Cart :cartItems="cart" />
-
+    <div class="body">
+      <div class="products-component">
+        <ProductCard 
+          v-for="(product, i) in stock" 
+          @add-to-cart="updateCart" 
+          :key="i" 
+          :merch-stock="product" 
+        />
+      </div>
+      <Cart :cartItems="cart" />
+    </div>
   </div>
 </template>
 
@@ -23,14 +31,22 @@ export default {
   data() { return {
         stock: merchDB,
         cart: [],
+        activeCart: false
   }},
   methods: {
     updateCart(input) {
       console.log(this.cart)
       this.cart.push(input);
+    },
+    showCart(input) {
+      this.activeCart = input;
+      console.log(this.activeCart)
     }
   },
   computed: {
+      cartAmount() {
+        return this.cart.length
+      }
     
   },
   components: {

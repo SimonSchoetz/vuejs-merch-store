@@ -15,9 +15,10 @@
         transition: .2s;
         text-transform: uppercase;
         font-weight: bold;
+        font-size: 1.2rem;
         letter-spacing: 3px;
         &:hover {
-            background-color: black;
+            background-color: #222222;
             color: white;
             transition: .2s;
         }
@@ -29,6 +30,7 @@
             position: relative;
             img {
                 position: relative;
+                width: 100%;
             }
             .out-of-stock-layer {
                 background-color: rgba(255, 255, 255, 0.5);
@@ -61,7 +63,7 @@
                 border: 0;
                 border-radius: 2px;
                 &:hover {
-                    background-color: black;
+                    background-color: #222222;
                     color: white;
                     transition: .2s;
                 }
@@ -70,4 +72,25 @@
     
     }
 
+}
+@media only screen and (max-width: 355px) {
+    .product {
+        .product-name {
+        font-size: 1rem;
+        }
+        .product-card {
+            .product-view {
+                .out-of-stock-layer {
+                    p {
+                        font-size: 2rem;
+                    }
+                }
+                .to-cart-btn {
+                    padding: .5rem;
+                    right: .5rem;
+                    bottom: 1rem;
+                }
+            }
+        }
+    }
 }

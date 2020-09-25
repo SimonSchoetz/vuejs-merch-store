@@ -1,8 +1,7 @@
 
 <template>
   <div class="cart">
-      <h2>Cart ({{cartAmount}})</h2>
-  <button @click="clg(cart)">clg</button>
+  <!-- <button @click="clg(cart)">clg</button> -->
   </div>
 </template>
 
@@ -21,9 +20,6 @@ export default {
         },
     },
     computed: {
-      cartAmount() {
-        return this.cartItems.length
-      }
     }
 
 }
