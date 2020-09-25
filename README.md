@@ -2,6 +2,19 @@
 
 A fake merch store for learning and showcasing purposes 
 
+## Steps
+
+### Choose products and add to cart
+
+DONE
+
+### Review the cart and make changes if needed
+
+WIP
+
+### Checkout with form
+
+WIP
 
 ---------------------
 
