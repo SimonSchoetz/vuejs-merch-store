@@ -1,6 +1,7 @@
 <template>
   <div class="shop">
       <h1>Busted Fingerz Merch</h1>
+      <!-- <img class="busted-gif" src="../assets/busted_gif.gif" /> -->
       <div class="fake-nav">
         <h2 :class="activeCart ? '' : 'active'" >PRODUCTS</h2>
         <h2 :class="activeCart ? 'active' : ''" @click="showCart(true)">CART ({{cartAmount}})</h2>
