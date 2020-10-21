@@ -57,7 +57,11 @@ export default {
   },
   computed: {
       cartAmount() {
-        return this.cart.items.length
+        let amountItems = 0;
+        this.cart.items.forEach(item => {
+          amountItems += item.amount
+        })
+        return amountItems
       },
       // sortedCart() {
       //   const isInCart = [];
