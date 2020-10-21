@@ -1,7 +1,8 @@
 
 <template>
   <div class="cart">
-  <!-- <button @click="clg(cart)">clg</button> -->
+    <h2>This Is Cart</h2>
+  <button @click="clg(cart[0] === cart[2])">clg</button>
   </div>
 </template>
 

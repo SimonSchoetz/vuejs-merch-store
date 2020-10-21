@@ -3,14 +3,14 @@
       <h1>Busted Fingerz Merch</h1>
       <!-- <img class="busted-gif" src="../assets/busted_gif.gif" /> -->
       <div class="fake-nav">
-        <h2 :class="activeCart ? '' : 'active'" >PRODUCTS</h2>
+        <h2 :class="activeCart ? '' : 'active'"  @click="showCart(false)">PRODUCTS</h2>
         <h2 :class="activeCart ? 'active' : ''" @click="showCart(true)">CART ({{cartAmount}})</h2>
       </div>
-    <div v-show="activeCart" class="coming-soon" @click="showCart(false)">
+    <!-- <div v-show="activeCart" class="coming-soon" @click="showCart(false)">
       <h2>COMMING SOON!</h2>
-    </div>
+    </div> -->
     <div class="body">
-      <div class="products-component">
+      <div v-show="!activeCart" class="products-component">
         <ProductCard 
           v-for="(product, i) in stock" 
           @add-to-cart="updateCart" 
@@ -18,7 +18,9 @@
           :merch-stock="product" 
         />
       </div>
-      <Cart :cartItems="cart" />
+      <div v-show="activeCart" class="cart-component">
+        <Cart :cartItems="cart" />
+      </div>
     </div>
   </div>
 </template>
@@ -31,23 +33,36 @@ export default {
   name: 'Shop',
   data() { return {
         stock: merchDB,
-        cart: [],
+        cart: {
+          includes: [],
+          items: []
+        },
         activeCart: false
   }},
   methods: {
     updateCart(input) {
-      console.log(this.cart)
-      this.cart.push(input);
+      if (!this.cart.includes.includes(input)) {
+        this.cart.includes.push(input)
+        this.cart.items.push({item: input, amount: 1})
+      } else {
+        this.cart.items.forEach(item => {
+          if (item.item === input) {item.amount ++}
+        })
+      }
+      console.log(this.cart.items);
     },
     showCart(input) {
       this.activeCart = input;
-      console.log(this.activeCart)
     }
   },
   computed: {
       cartAmount() {
-        return this.cart.length
-      }
+        return this.cart.items.length
+      },
+      // sortedCart() {
+      //   const isInCart = [];
+
+      // }
     
   },
   components: {
