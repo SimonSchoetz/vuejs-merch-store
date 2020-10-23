@@ -52,7 +52,7 @@
           </span>
         </div>
         <div class="delete-container" v-show="!item.amount">
-          <button>Delete from Cart</button>
+          <button>DELETE</button>
         </div>
       </div>
     </li>

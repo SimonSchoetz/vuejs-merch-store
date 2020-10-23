@@ -65,7 +65,15 @@
                 justify-content: flex-end;
                 align-items: flex-end;
                 button {
-                    height: 40px;
+                    padding: 1rem 1.1rem;
+                    right: 1rem;
+                    bottom: 2rem;
+                    font-weight: bold;
+                    box-shadow: rgba(0, 0, 0, 0.5) -5px 5px 10px 2px;
+                    background-color: white;
+                    transition: .2s;
+                    border: 0;
+                    border-radius: 2px;
                 }
             }
         }
