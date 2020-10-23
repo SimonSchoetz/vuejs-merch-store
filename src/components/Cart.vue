@@ -1,8 +1,11 @@
 
 <template>
   <div class="cart">
-  <button @click="clg(cart)">clg</button>
-  <ul >
+  <!-- <button @click="clg(cart)">clg</button> -->
+  <div class="empty-cart-placeholder" v-show="cart.includes.length <= 0">
+    <h2>Cart is empty.</h2>
+  </div>
+  <ul>
     <li class="cart-item" v-for="(item, i) in cart.items" :key="i">
       <h3> {{item.item.product}}: {{item.item.colorMain}}, {{item.item.colorLogo1}} {{item.item.colorLogo2 !== '' ? 'and '+ item.item.colorLogo2 : null}}</h3>
       <div class="img-container">
@@ -33,11 +36,11 @@
       </div>
       <div class="item-summary">
         <div>
-          <span>Single prize:</span>
-          <span>{{item.item.prize}} €</span>
+          <span>SINGLE PRICE:</span>
+          <span>{{item.item.price}} €</span>
         </div>
         <div>
-          <span>In cart: </span> 
+          <span>IN CART: </span> 
           <span> 
             <button 
               class="amount-controls" 
@@ -57,9 +60,9 @@
       </div>
     </li>
   </ul>
-  <div class="sub-total">
-    <h2><span>Subtotal:</span> <span>{{subtotal}} € </span></h2>
-    <button class="checkout" @click="showCheckout(true)">Checkout</button> 
+  <div class="sub-total" v-show="cart.includes.length > 0">
+    <h2><span>SUBTOTAL:</span> <span>{{subtotal}} € </span></h2>
+    <button class="checkout" @click="showCheckout(true)">CHECKOUT</button> 
   </div>
   </div>
 </template>
@@ -98,7 +101,7 @@ export default {
       subtotal() {
         let total = 0;
         this.cart.items.forEach(item => {
-          total += item.item.prize*item.amount
+          total += item.item.price*item.amount
         })
         return total.toFixed(2)
       }

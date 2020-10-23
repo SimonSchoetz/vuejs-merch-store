@@ -1,12 +1,21 @@
 .cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 125px);
     backdrop-filter: blur(3px);
     background-color: rgba(34, 34, 34, 0.75);
     color: white;
     position: relative;
     li {
         list-style-type: none;
+    }
+    .empty-cart-placeholder {
+        height: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .cart-item {
         position: relative;
@@ -84,6 +93,7 @@
         z-index: 3;
         background-color: rgba(34, 34, 34);
         padding: .5rem;
+        width: 100%;
         h2 {
         display: flex;
         justify-content: space-between;
