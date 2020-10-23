@@ -1,7 +1,6 @@
 
 <template>
   <div class="cart">
-  <button @click="clg(cart)">clg</button>
   <div class="empty-cart-placeholder" v-show="cart.includes.length <= 0">
     <h2>Cart is empty.</h2>
   </div>
@@ -98,7 +97,7 @@ export default {
           this.cart.items.splice(i, 1);
         },
         setCheckout() {
-          this.$emit("set-checkout");
+          this.$emit("set-checkout", this.subtotal);
         }
     },
     computed: {

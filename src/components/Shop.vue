@@ -27,7 +27,7 @@
         </div>
       </div>
       <div v-show="showCheckout" class="checkout-component">
-        <Checkout @set-checkout="setShowCheckout" />
+        <Checkout @set-checkout="setShowCheckout" :sub-total="this.subtotal" />
       </div>
     </div>
   </div>
@@ -48,7 +48,8 @@ export default {
           items: []
         },
         activeCart: false,
-        showCheckout: false
+        showCheckout: false,
+        subtotal: 0
   }},
   methods: {
     updateCart(input) {
@@ -65,9 +66,9 @@ export default {
     showCart(input) {
       this.activeCart = input;
     },
-    setShowCheckout() {
+    setShowCheckout(input) {
       this.showCheckout = !this.showCheckout;
-      console.log(this.showCheckout)
+      this.subtotal = input;
     }
   },
   computed: {
@@ -78,11 +79,6 @@ export default {
         })
         return amountItems
       },
-      // sortedCart() {
-      //   const isInCart = [];
-
-      // }
-    
   },
   components: {
       ProductCard,
