@@ -47,14 +47,19 @@
             <button 
               class="amount-controls" 
               @click="changeAmount(item, 'more')"
-              :disabled="!item.item.quantity">+</button> 
-            </span>
-          </div>
+              :disabled="!item.item.quantity">+
+            </button> 
+          </span>
+        </div>
+        <div class="delete-container" v-show="!item.amount">
+          <button>Delete from Cart</button>
+        </div>
       </div>
     </li>
   </ul>
-  <div>
-    <h2>Subtotal: {{subtotal}} € </h2> 
+  <div class="sub-total">
+    <h2><span>Subtotal:</span> <span>{{subtotal}} € </span></h2>
+    <button class="checkout" @click="showCheckout(true)">Checkout</button> 
   </div>
   </div>
 </template>
@@ -84,6 +89,9 @@ export default {
             item.item.quantity --;
             }
           }
+        },
+        showCheckout(input) {
+          console.log(input)
         }
     },
     computed: {
