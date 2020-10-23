@@ -1,7 +1,6 @@
 
 <template>
   <div class="cart">
-    <h2>This Is Cart</h2>
   <button @click="clg(cart)">clg</button>
   <ul >
     <li class="cart-item" v-for="(item, i) in cart.items" :key="i">
@@ -40,14 +39,23 @@
         <div>
           <span>In cart: </span> 
           <span> 
-            <button class="amount-controls">-</button> 
-             {{item.amount}}  
-            <button class="amount-controls">+</button> 
+            <button 
+              class="amount-controls" 
+              @click="changeAmount(item, 'less')"
+              :disabled="!item.amount">-</button> 
+            {{item.amount}}
+            <button 
+              class="amount-controls" 
+              @click="changeAmount(item, 'more')"
+              :disabled="!item.item.quantity">+</button> 
             </span>
           </div>
       </div>
     </li>
   </ul>
+  <div>
+    <h2>Subtotal: {{subtotal}} € </h2> 
+  </div>
   </div>
 </template>
 
@@ -62,10 +70,30 @@ export default {
     }},
     methods: {
         clg(input) {
-            return console.log(input)
+          return console.log(input);
         },
+        changeAmount(item, action) {
+          if (action === "less") {
+            item.amount > 0 ? item.amount -- : null;
+            item.item.quantity ++;
+          }
+          if (action ==="more") {
+            if (item.item.quantity <= 0) return
+            else {
+            item.amount ++;
+            item.item.quantity --;
+            }
+          }
+        }
     },
     computed: {
+      subtotal() {
+        let total = 0;
+        this.cart.items.forEach(item => {
+          total += item.item.prize*item.amount
+        })
+        return total.toFixed(2)
+      }
     }
 
 }
