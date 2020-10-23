@@ -4,7 +4,28 @@
     <h3 class="product-name">{{productName}}s</h3>
     <div class="product-card"> 
         <div class="product-view"> 
-            <img width="400" :src="imgSrc" />
+            <img width="400" 
+                :src="imgSrc.img" 
+                :alt="
+                    imgSrc.colorLogo2 === '' ?
+                    imgSrc.colorMain.charAt(0).toUpperCase()+
+                    imgSrc.colorMain.slice(1)+
+                    ' '+
+                    imgSrc.product.charAt(0).toLowerCase()+
+                    imgSrc.product.slice(1)+
+                    ' whith a '+
+                    imgSrc.colorLogo1+ 
+                    ' Busted Fingerz Logo' : 
+                    imgSrc.colorMain.charAt(0).toUpperCase()+
+                    imgSrc.colorMain.slice(1)+
+                    ' '+
+                    imgSrc.product.charAt(0).toLowerCase()+
+                    imgSrc.product.slice(1)+
+                    ' whith a '+
+                    imgSrc.colorLogo1+ 
+                    ' and '+
+                    imgSrc.colorLogo2+
+                    ' Busted Fingerz Logo'"  />
             <div class="out-of-stock-layer" v-if="!inStock"> 
                 <p> 
                     Out of stock! 
@@ -123,7 +144,7 @@ export default {
             return this.productTypes[this.selectedId]
         },
         imgSrc() {
-            return this.hovering? this.currItem.img : this.lockedItem.img
+            return this.hovering? this.currItem : this.lockedItem
         }
     }
 }
