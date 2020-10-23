@@ -1,10 +1,16 @@
 .checkout-component {
     position: relative;
     min-height: calc(100vh - 63px);
-    overflow: hidden;
+    backdrop-filter: blur(3px);
+    overflow-x: hidden;
     .btn-container {
         padding: .5rem;
+        background-color: rgba(34, 34, 34);
     }  
+    .bottom-btn {
+        position: sticky;
+        bottom: 0;
+    }
 
     .back-btn, .submit-btn, .next-btn {
         padding: .5rem 0;
@@ -32,8 +38,13 @@
     }
     form {
         display: flex;
+        
         .left-side, .right-side {
             width: 100%;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            height: calc(100vh - 113px);
         }
         .left-side {
             position: relative;
@@ -74,6 +85,49 @@
             li {
                 list-style-type: none;
             }
+            h2 {
+                backdrop-filter: blur(3px);
+                background-color: rgba(34, 34, 34);
+                padding: .5rem;
+            }
+            .final-tabel {
+                li, h3 {
+                    padding: 0 .5rem;
+                }
+                h3 {
+                    font-weight: lighter;
+                    margin: .5rem 0;
+                    font-size: 1rem;
+                }
+                li {
+                    font-size: 1.3rem;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .post-address {
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+    .end-card {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: calc(100vh - 63px);
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(5px);
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        p {
+            font-size: 1.3rem;
+            background-color: rgba(34, 34, 34);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0 ;
         }
     }
 }
