@@ -62,7 +62,7 @@
   </ul>
   <div class="sub-total" v-show="cart.includes.length > 0">
     <h2><span>SUBTOTAL:</span> <span>{{subtotal}} € </span></h2>
-    <button class="checkout" @click="showCheckout(true)">CHECKOUT</button> 
+    <button class="checkout" @click="setCheckout()">CHECKOUT</button> 
   </div>
   </div>
 </template>
@@ -97,10 +97,9 @@ export default {
           this.cart.includes.splice(i, 1);
           this.cart.items.splice(i, 1);
         },
-        showCheckout(input) {
-          console.log(input)
+        setCheckout() {
+          this.$emit("set-checkout");
         }
-
     },
     computed: {
       subtotal() {

@@ -2,7 +2,7 @@
   <div class="shop">
       <h1>Busted Fingerz Merch</h1>
       <!-- <img class="busted-gif" src="../assets/busted_gif.gif" /> -->
-      <div class="fake-nav">
+      <div class="fake-nav" v-show="!showCheckout">
         <h2 :class="activeCart ? '' : 'active'"  @click="showCart(false)">PRODUCTS</h2>
         <h2 :class="activeCart ? 'active' : ''" @click="showCart(true)">CART ({{cartAmount}})</h2>
       </div>
@@ -10,16 +10,24 @@
       <h2>COMMING SOON!</h2>
     </div> -->
     <div class="body">
-      <div v-show="!activeCart" class="products-component">
-        <ProductCard 
-          v-for="(product, i) in stock" 
-          @add-to-cart="updateCart" 
-          :key="i" 
-          :merch-stock="product" 
-        />
+      <div v-show="!showCheckout">
+        <div v-show="!activeCart" class="products-component">
+          <ProductCard 
+            v-for="(product, i) in stock" 
+            @add-to-cart="updateCart" 
+            :key="i" 
+            :merch-stock="product" 
+          />
+        </div>
+        <div v-show="activeCart" class="cart-component">
+          <Cart 
+            :cartItems="cart"
+            @set-checkout="setShowCheckout" 
+          />
+        </div>
       </div>
-      <div v-show="activeCart" class="cart-component">
-        <Cart :cartItems="cart" />
+      <div v-show="showCheckout" class="checkout-component">
+        <Checkout @set-checkout="setShowCheckout" />
       </div>
     </div>
   </div>
@@ -29,6 +37,8 @@
 import merchDB from "../merch.json";
 import ProductCard from  "./ProductCard";
 import Cart from "./Cart";
+import Checkout from "./Checkout";
+
 export default {
   name: 'Shop',
   data() { return {
@@ -37,7 +47,8 @@ export default {
           includes: [],
           items: []
         },
-        activeCart: false
+        activeCart: false,
+        showCheckout: false
   }},
   methods: {
     updateCart(input) {
@@ -53,6 +64,10 @@ export default {
     },
     showCart(input) {
       this.activeCart = input;
+    },
+    setShowCheckout() {
+      this.showCheckout = !this.showCheckout;
+      console.log(this.showCheckout)
     }
   },
   computed: {
@@ -71,7 +86,8 @@ export default {
   },
   components: {
       ProductCard,
-      Cart
+      Cart,
+      Checkout
   }
 }
 </script>
