@@ -1,7 +1,7 @@
 
 <template>
   <div class="cart">
-  <!-- <button @click="clg(cart)">clg</button> -->
+  <button @click="clg(cart)">clg</button>
   <div class="empty-cart-placeholder" v-show="cart.includes.length <= 0">
     <h2>Cart is empty.</h2>
   </div>
@@ -55,7 +55,7 @@
           </span>
         </div>
         <div class="delete-container" v-show="!item.amount">
-          <button>DELETE</button>
+          <button @click="handleDelete(i)">DELETE</button>
         </div>
       </div>
     </li>
@@ -93,9 +93,14 @@ export default {
             }
           }
         },
+        handleDelete(i) {
+          this.cart.includes.splice(i, 1);
+          this.cart.items.splice(i, 1);
+        },
         showCheckout(input) {
           console.log(input)
         }
+
     },
     computed: {
       subtotal() {
