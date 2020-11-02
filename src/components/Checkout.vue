@@ -3,7 +3,7 @@
     <div class="btn-container">
         <button class="back-btn" @click="setCheckout()">BACK TO THE SHOP</button>
     </div>
-    <form @submit="handleSubmit(true)">
+    <form @submit="handleSubmit(true, $event)">
         <div :class="showFinal ? 'left-side' : 'left-side active'">
             <label for="first-name">
                 <span class="required">*<span>First Name</span> </span> 
@@ -87,9 +87,12 @@ export default {
         setCheckout() {
             this.$emit("set-checkout");
         },
-        handleSubmit(input) {
+        handleSubmit(input, event) {
             this.submitted = input;
             console.log(input)
+            if (event) {
+                event.preventDefault()
+            }
         },
         setShowFinal(input) {
             this.showFinal = input;

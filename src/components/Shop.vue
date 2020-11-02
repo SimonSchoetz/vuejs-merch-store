@@ -61,7 +61,6 @@ export default {
           if (item.item === input) {item.amount ++}
         })
       }
-      console.log(this.cart.items);
     },
     showCart(input) {
       this.activeCart = input;
